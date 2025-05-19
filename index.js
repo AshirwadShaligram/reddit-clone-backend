@@ -35,7 +35,13 @@ app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/votes", voteRoutes);
 
+// Add this in index.js (before app.listen)
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ status: "OK", message: "Server is healthy" });
+});
+
 const PORT = process.env.PORT || 3001;
+
 async function main() {
   try {
     await prisma.$connect();
