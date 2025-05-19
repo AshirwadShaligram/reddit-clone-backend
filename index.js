@@ -18,7 +18,10 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL, // frontend domain IP
+    origin: [
+      "https://reddit-clone-frontend-six.vercel.app",
+      "https://reddit-clone-frontend-git-main-ashirwadshaligrams-projects.vercel.app",
+    ], // frontend domain IP
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
