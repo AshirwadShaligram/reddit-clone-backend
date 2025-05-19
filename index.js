@@ -35,13 +35,14 @@ app.use("/api/posts", postRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/votes", voteRoutes);
 
+const PORT = process.env.PORT || 3001;
 async function main() {
   try {
     await prisma.$connect();
     console.log("Database connected successfully");
 
-    app.listen(process.env.PORT, () => {
-      console.log(`server is running on ${process.env.PORT}`);
+    app.listen(PORT, () => {
+      console.log(`server is running on ${PORT}`);
     });
   } catch (error) {
     console.error("Database connection failed", error);
